@@ -7,7 +7,7 @@ from langchain_mistralai import ChatMistralAI
 from langgraph.graph import StateGraph  
 import math
 
-mistral_api_key = "MxMJYczrp1F6oSCJHGJC08dkppue4O87"
+mistral_api_key = "Enter your mistral API key here"
 
 st.header("My Chatbot")
 #Sidebar
