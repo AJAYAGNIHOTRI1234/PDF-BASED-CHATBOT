@@ -1,28 +1,31 @@
-# 🚀 PDF Chatbot with AI (Streamlit + LangChain + Mistral)
+# 🚀 AI-Powered PDF Chatbot (RAG + Streamlit + Mistral)
 
-> 📄 Turn your PDFs into an intelligent chatbot that can answer questions instantly using AI.
+> 📄 Turn your PDFs into an intelligent chatbot that understands and answers questions using AI.
 
 ---
 
 ## 🌟 Features
 
-✨ Upload any PDF and ask questions  
-🤖 AI-powered responses using Mistral LLM  
-🔍 Semantic search with vector embeddings (FAISS)  
-⚡ Fast and interactive UI with Streamlit  
-📚 Context-aware answers from your documents  
+✨ Upload any PDF and ask questions in natural language
+🤖 AI-powered responses using Mistral LLM
+🔍 Semantic search with FAISS vector database
+✂️ Dynamic text chunking based on document size
+🎯 Token-aware response generation (optimized output length)
+🔗 LangGraph-based pipeline for structured processing
+⚡ Fast and interactive UI with Streamlit
 
 ---
 
-## 🧠 How It Works
+## 🧠 How It Works (RAG Pipeline)
 
-1. 📄 Upload a PDF file  
-2. ✂️ Text is extracted and split into chunks  
-3. 🔢 Chunks are converted into embeddings  
-4. 🗂️ Stored in a FAISS vector database  
-5. ❓ User asks a question  
-6. 🔍 Relevant chunks are retrieved  
-7. 🤖 Mistral AI generates the final answer  
+1. 📄 Upload a PDF file
+2. ✂️ Extract and split text into dynamic chunks
+3. 🔢 Convert chunks into embeddings (HuggingFace)
+4. 🗂️ Store embeddings in FAISS vector database
+5. ❓ User submits a query
+6. 🔍 Retrieve top relevant chunks (k=6)
+7. 🤖 Mistral LLM generates context-aware response
+8. 🎯 Response is optimized based on token requirements
 
 ---
 
@@ -40,12 +43,13 @@ pdf-chatbot/
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** Streamlit  
-- **Backend:** Python  
-- **LLM:** Mistral AI  
-- **Embeddings:** HuggingFace  
-- **Vector DB:** FAISS  
-- **Frameworks:** LangChain, LangGraph  
+* **Frontend:** Streamlit
+* **Backend:** Python
+* **LLM:** Mistral AI
+* **Embeddings:** HuggingFace
+* **Vector DB:** FAISS
+* **Frameworks:** LangChain, LangGraph
+* **PDF Processing:** PyPDF2
 
 ---
 
@@ -76,13 +80,21 @@ pip install -r requirements.txt
 
 ## 🔑 Setup API Key
 
-Replace the API key in `app.py`:
+⚠️ **Do NOT hardcode your API key**
 
-```python
-mistral_api_key = "YOUR_API_KEY"
+Use environment variables:
+
+```bash
+export MISTRAL_API_KEY=your_api_key   # Linux/Mac
+set MISTRAL_API_KEY=your_api_key      # Windows
 ```
 
-⚠️ **Important:** Never expose your API key publicly. Use environment variables instead.
+Then update your code:
+
+```python
+import os
+mistral_api_key = os.getenv("MISTRAL_API_KEY")
+```
 
 ---
 
@@ -96,24 +108,25 @@ streamlit run app.py
 
 ## 📸 Demo
 
-Upload a PDF → Ask Questions → Get Instant Answers
+Upload a PDF → Ask Questions → Get Context-Aware Answers Instantly 🚀
 
 ---
 
 ## 🔒 Security Note
 
-- Do NOT commit API keys to GitHub  
-- Use `.env` or environment variables for sensitive data  
+* ❌ Never commit API keys to GitHub
+* ✅ Use `.env` or environment variables
+* ✅ Add `.env` to `.gitignore`
 
 ---
 
 ## 📈 Future Improvements
 
-- ✅ Multiple PDF support  
-- 🧠 Chat history memory  
-- 🌐 Deployment (Streamlit Cloud / AWS)  
-- 🎨 Better UI/UX  
-- 🔊 Voice input support  
+* 📄 Multi-document support
+* 💬 Chat history & memory
+* 🌐 Deployment (Streamlit Cloud / AWS / Render)
+* 🎨 Enhanced UI/UX
+* 🔊 Voice-based interaction
 
 ---
 
@@ -121,10 +134,10 @@ Upload a PDF → Ask Questions → Get Instant Answers
 
 Contributions are welcome! 🎉
 
-1. Fork the repo  
-2. Create a new branch  
-3. Make your changes  
-4. Submit a Pull Request  
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Open a Pull Request
 
 ---
 
@@ -134,7 +147,7 @@ This project is licensed under the **MIT License**.
 
 ---
 
-## 💡 Author
+## 👨‍💻 Author
 
 **Ajay Agnihotri**
 
@@ -144,6 +157,6 @@ This project is licensed under the **MIT License**.
 
 If you like this project:
 
-🌟 Star the repo  
-🍴 Fork it  
-📢 Share it  
+🌟 Star the repo
+🍴 Fork it
+📢 Share it
